@@ -35,12 +35,12 @@ from pyrogram.types import (
 admin_filter=filters.create(is_admin) 
 
 
-@Client.on_message(filters.command(["record", f"record@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["record", "ریک", f"record@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def record_vc(bot, message):
     await message.reply("تنظیمه ضبط پلیرㅤㅤ ㅤ", reply_markup=(await recorder_settings()))
     await delete_messages([message])
 
-@Client.on_message(filters.command(["rtitle", f"rtitle@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["rtitle", "تاریک", f"rtitle@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def recording_title(bot, message):
     m=await message.reply("در حال چک..")
     if " " in message.text:
