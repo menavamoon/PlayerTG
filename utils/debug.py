@@ -133,7 +133,7 @@ async def set_heroku_var(client, message):
                     await db.edit_config("RESTART", msg)
             config[var] = str(value)
 
-@debug.on_message(filters.command(["restart", f"restart@{Config.BOT_USERNAME}"]) & filters.private & filters.user(Config.ADMINS))
+@debug.on_message(filters.command(["restart", "ریست", f"restart@{Config.BOT_USERNAME}"]) & filters.private & filters.user(Config.ADMINS))
 async def update(bot, message):
     m=await message.reply("ریست با تغییرات جدید..")
     if Config.DATABASE_URI:
@@ -149,7 +149,7 @@ async def update(bot, message):
             target=stop_and_restart()
             ).start()
 
-@debug.on_message(filters.command(["clearplaylist", f"clearplaylist@{Config.BOT_USERNAME}"]) & filters.private & filters.user(Config.ADMINS))
+@debug.on_message(filters.command(["clearplaylist", "نوابسه", f"clearplaylist@{Config.BOT_USERNAME}"]) & filters.private & filters.user(Config.ADMINS))
 async def clear_play_list(client, m: Message):
     if not Config.playlist:
         k = await m.reply("پلی لیست خالیه.")  
@@ -159,7 +159,7 @@ async def clear_play_list(client, m: Message):
     await clear_db_playlist(all=True)
 
     
-@debug.on_message(filters.command(["skip", f"skip@{Config.BOT_USERNAME}"]) & filters.private & filters.user(Config.ADMINS))
+@debug.on_message(filters.command(["skip", "رد", f"skip@{Config.BOT_USERNAME}"]) & filters.private & filters.user(Config.ADMINS))
 async def skip_track(_, m: Message):
     msg=await m.reply('در حال رد کردن..')
     if not Config.playlist:
@@ -187,7 +187,7 @@ async def skip_track(_, m: Message):
     await msg.edit(pl, disable_web_page_preview=True)
 
 
-@debug.on_message(filters.command(['logs', f"logs@{Config.BOT_USERNAME}"]) & filters.private & filters.user(Config.ADMINS))
+@debug.on_message(filters.command(['logs', 'لاگ', f"logs@{Config.BOT_USERNAME}"]) & filters.private & filters.user(Config.ADMINS))
 async def get_logs(client, message):
     m=await message.reply("چکیدنه لاگ..")
     if os.path.exists("botlog.txt"):
