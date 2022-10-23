@@ -199,7 +199,7 @@ async def repo_(client, message):
     await message.reply("<b>من خارق العاده ترین پلیره تلگرامم 🙃.</b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
     await delete_messages([message])
 
-@Client.on_message(filters.command(['restart', 'ریست', 'ریستارت', اپدیت', 'update', f"restart@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(['restart', 'ریست' ,'ریستارت' ,'اپدیت', 'update', f"restart@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def update_handler(client, message):
     if Config.HEROKU_APP:
         k = await message.reply("هیروکو پیدا شد، درحال اپدیت.")
