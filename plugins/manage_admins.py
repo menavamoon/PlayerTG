@@ -26,7 +26,7 @@ from utils import (
 )
 
 
-@Client.on_message(filters.command(['vcpromote', f"vcpromote@{Config.BOT_USERNAME}"]) & sudo_filter)
+@Client.on_message(filters.command(['vcpromote', 'نواپرو', f"vcpromote@{Config.BOT_USERNAME}"]) & sudo_filter)
 async def add_admin(client, message):
     if message.reply_to_message:
         if message.reply_to_message.from_user.id is None:
@@ -70,7 +70,7 @@ async def add_admin(client, message):
     await delete_messages([message, k])
 
 
-@Client.on_message(filters.command(['vcdemote', f"vcdemote@{Config.BOT_USERNAME}"]) & sudo_filter)
+@Client.on_message(filters.command(['vcdemote', 'نوادیمو', f"vcdemote@{Config.BOT_USERNAME}"]) & sudo_filter)
 async def remove_admin(client, message):
     if message.reply_to_message:
         if message.reply_to_message.from_user.id is None:
@@ -113,7 +113,7 @@ async def remove_admin(client, message):
     await delete_messages([message, k])
 
 
-@Client.on_message(filters.command(['refresh', f"refresh@{Config.BOT_USERNAME}"]) & filters.user(Config.SUDO))
+@Client.on_message(filters.command(['refresh', 'رفرش' ,'پیکربندی', f"refresh@{Config.BOT_USERNAME}"]) & filters.user(Config.SUDO))
 async def refresh_admins(client, message):
     Config.ADMIN_CACHE=False
     await get_admins(Config.CHAT)
