@@ -279,7 +279,7 @@ async def add_to_playlist(_, message: Message):
             await download(track)
 
 
-@Client.on_message(filters.command(["leave", f"leave@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["leave", "بیرون", f"leave@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def leave_voice_chat(_, m: Message):
     if not Config.CALL_STATUS:        
         k=await m.reply("توی هیچ وویس چتی نیستم.")
@@ -291,7 +291,7 @@ async def leave_voice_chat(_, m: Message):
 
 
 
-@Client.on_message(filters.command(["shuffle", f"shuffle@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["shuffle", "درهم", f"shuffle@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def shuffle_play_list(client, m: Message):
     if not Config.CALL_STATUS:
         k = await m.reply("توی هیچ وویس چتی نیستم.")
@@ -307,7 +307,7 @@ async def shuffle_play_list(client, m: Message):
             await delete_messages([m, k])
 
 
-@Client.on_message(filters.command(["clearplaylist", f"clearplaylist@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["clearplaylist", "نوابسه", f"clearplaylist@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def clear_play_list(client, m: Message):
     if not Config.playlist:
         k = await m.reply("پلی لیست خالیه.")  
@@ -325,7 +325,7 @@ async def clear_play_list(client, m: Message):
 
 
 
-@Client.on_message(filters.command(["cplay", f"cplay@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["cplay", "چپلی", f"cplay@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def channel_play_list(client, m: Message):
     with suppress(MessageIdInvalid, MessageNotModified):
         k=await m.reply("تنظیم برای پخش از چنل..")
@@ -387,7 +387,7 @@ async def channel_play_list(client, m: Message):
 
 
 
-@Client.on_message(filters.command(["yplay", f"yplay@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["yplay", "یوپلی", f"yplay@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def yt_play_list(client, m: Message):
     with suppress(MessageIdInvalid, MessageNotModified):
         if m.reply_to_message is not None and m.reply_to_message.document:
@@ -419,7 +419,7 @@ async def yt_play_list(client, m: Message):
             await delete_messages([m, k])
 
 
-@Client.on_message(filters.command(["stream", f"stream@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["stream", "استریم", f"stream@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def stream(client, m: Message):
     with suppress(MessageIdInvalid, MessageNotModified):
         msg=await m.reply("چک کردنه ورودی.")
